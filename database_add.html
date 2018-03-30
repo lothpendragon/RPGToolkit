@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <!--JQuery-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <!--JQuery-->
+    <meta charset="UTF-8">
+    <title>Item Database:Add</title>
+</head>
+<body>
+<header class="ui-header ui-bar-a" data-swatch="b" data-theme="b" data-role="header">
+    <a class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" title="Home" data-form="ui-icon" data-role="button"> Home </a>
+    <h1 class="ui-title">Item Database</h1>
+    <a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title="Navigation" data-form="ui-icon" data-role="button" href="#mypanel"> Navigation </a>
+</header>
+<div class ="ui-content">
+    <div class ="dice-wrapper">
+        <!-- List Header -->
+        <div class="ui-bar ui-bar-a">
+            <h3>Item Database Viewer</h3>
+        </div>
+        <!-- List Body -->
+        <div class="ui-grid-b custom-btn ">
+<form>
+    <br>
+    <label for="Item Name">Item Name:</label><br>
+    <input type="text" id="Item Name"> <br>
+    <label for="Item Stats">Item Stats:</label><br>
+    <input type="text" id="Item Stats"> <br>
+    <label for="Item Description">Item Description: </label><br>
+    <input type="text" id="Item Description"> <br>
+    <br>
+    <br>
+    <button id="Create Item">Create Item</button>
+</form>
+        </div>
+    </div>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+    <h3>
+        <a data-role="button" href="main.html">Return to Menu</a>
+    </h3>
+</div>
+
+<!-- DO NOT PUT ANYTHING BELOW THIS POINT -->
+<!-- Panel -->
+<div data-role="panel" id="mypanel" data-position="right">
+    <h2>Menu</h2>
+    <div><a data-role="button" data-theme="c">Character Select</a></div>
+    <div><a data-role="button" data-theme="c">Character Sheet</a></div>
+    <div><a data-role="button" data-theme="c">Initiative Tracker</a></div>
+    <div><a data-role="button" data-theme="c">Dice</a></div>
+    <div><a data-role="button" data-theme="c">Monsters</a></div>
+</div>
+</body>
+<!--firebase-->
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>var config = {
+    apiKey: "AIzaSyAloVENtkPKVw3x9zq-BKMT7gUpTD_swVk",
+    authDomain: "item-database-d9171.firebaseapp.com",
+    databaseURL: "https://item-database-d9171.firebaseio.com",
+    projectId: "item-database-d9171",
+    storageBucket: "item-database-d9171.appspot.com",
+    messagingSenderId: "813845729389"
+};
+firebase.initializeApp(config);
+
+var database =firebase.database();
+var Items =database.ref('Items');
+document.getElementById('Create Item').addEventListener('click', function()
+{
+    var nameElement = document.getElementById('Item Name'),
+        statElement = document.getElementById('Item Stats'),
+        descElement = document.getElementById('Item Description'),
+        name = nameElement.value,
+        stats =statElement.value,
+        description = descElement.value;
+
+    var Item = {
+        Name: name,
+        Stat: stats,
+        Desc: description
+    };
+
+    Items.push(Item);
+    statElement.value ="";
+    nameElement.value="";
+    descElement.value="";
+});
+</script>
+</html>

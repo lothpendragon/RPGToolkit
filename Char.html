@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--JQuery-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="Js/CharSheetScript.js"></script>
+    <link rel="stylesheet" href="CSS/main.css">
+    <!--JQuery-->
+    <meta charset="UTF-8">
+    <title>RPG Toolkit</title>
+</head>
+
+<body onload="Update()">
+<header class="ui-header ui-bar-a" data-swatch="b" data-theme="b" data-role="header">
+    <a class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" title="Home" data-form="ui-icon" data-role="button"> Home </a>
+    <div id="title"></div>
+    <a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title="Navigation" data-form="ui-icon" data-role="button" href="#mypanel"> Navigation </a>
+</header>
+<div id="character" class ="ui-content">
+
+    <div id="coreInfo" class="dice-wrapper">
+        <!-- List Header -->
+        <div class="ui-bar-a" data-role="collapsible" data-collapsed="false">
+            <h1 class="ui-bar">Core Info</h1>
+            <div class="ui-body ui-body-a character-list">
+                <div>
+                    <table style="width: 100%">
+                        <tr>
+                            <td><label for="playerName">Player:</label></td>
+                            <td><label><input type="text" id="playerName" value="VALUE"></label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="characterName">Name:</label></td>
+                            <td><label><input type="text" id="characterName" value="VALUE"></label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="level">Level:</label></td>
+                            <td><label><input type="number" id="level" value="1"></label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="race">Race:</label></td>
+                            <td><label><input type="text" id="race" value="VALUE"></label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="class">Class:</label></td>
+                            <td><label><input type="text" id="class" value="VALUE"></label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="background">Background:</label></td>
+                            <td><label><input type="text" id="background" value="VALUE"></label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="alignnment">Alignment:</label></td>
+                            <td><label><input type="text" id="alignnment" value="VALUE"></label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="experiencePoints">Experience:</label></td>
+                            <td><label><input type="number" id="experiencePoints" value="0"></label></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quickCard" class="ui-bar-a" data-role="collapsible" data-collapsed="true">
+        <h1 class="ui-bar">Quick Card</h1>
+        <div class="ui-body ui-body-a character-list">
+            <div class="ui-grid-a ui-responsive">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">AC:<input type="number" value="12"></div>
+                    <div class="ui-block-b">INIT:<input type="number" value="12"></div>
+                    <div class="ui-block-a">SPEED:<input type="number" value="12"></div>
+                    <div class="ui-block-b">PERC:<input type="number" value="12"></div>
+
+                    <div class="ui-block-a">HP:<input type="number" value="12"></div>
+                    <div class="ui-block-b">MAX HP:<input type="number" value="12"></div>
+                    <div class="ui-block-a">TEMP HP:<input type="number" value="0"></div>
+                    <div class="ui-block-b">MAX TEMP HP:<input type="number" value="12"></div>
+
+                    <div class="ui-block-a">HIT DICE:<input type="text" value="d10"></div>
+                    <div class="ui-block-b">TOTAL HIT DICE:<input type="number" value="3"></div>
+                    <div class="ui-block-a">SPEED:<input type="number" value="12"></div>
+                    <div class="ui-block-b">PERC:<input type="number" value="12"></div>
+
+                    <div class="ui-block-a">INSP:<input type="number" value="0"></div>
+                    <div class="ui-block-b">PROF BONUS:<input type="number" value="2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--    <div id="primaryAttributes" class ="dice-wrapper">
+&lt;!&ndash;        &lt;!&ndash; List Header &ndash;&gt;
+        <div class="ui-bar-a" data-role="collapsible" data-collapsed="true">
+            <h1 class="ui-bar">Primary Attributes</h1>
+            <div class="ui-body ui-body-a character-list">
+                <div class="ui-grid-b ui-responsive" >
+
+                    <div class="ui-block-a"><b>STR</b>
+                        <input type="number" value="12">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">MOD:<br>
+                                <input type="number" value="2"></div>
+                            <div class="ui-block-b">SAVE:<input type="number" value="2"></div>
+                        </div>
+                    </div>
+
+                    <div class="ui-block-b"><b>DEX</b>
+
+                        <input type="number" value="12">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">MOD:<input type="number" value="2"></div>
+                            <div class="ui-block-b">SAVE:<input type="number" value="2"></div>
+                        </div>
+                    </div>
+                    <div class="ui-block-c"><b>CON</b>
+
+                        <input type="number" value="12">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">MOD:<input type="number" value="2"></div>
+                            <div class="ui-block-b">SAVE:<input type="number" value="2"></div>
+                        </div>
+                    </div>
+                    <div class="ui-block-a"><b>INT</b>
+
+                        <input type="number" value="12">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">MOD:<input type="number" value="2"></div>
+                            <div class="ui-block-b">SAVE:<input type="number" value="2"></div>
+                        </div>
+                    </div>
+                    <div class="ui-block-b"><b>WIS</b>
+
+                        <input type="number" value="12">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">MOD:<input type="number" value="2"></div>
+                            <div class="ui-block-b">SAVE:<input type="number" value="2"></div>
+                        </div>
+                    </div>
+                    <div class="ui-block-c"><b>CHA</b>
+
+                        <input type="number" value="12">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">MOD:<input type="number" value="2"></div>
+                            <div class="ui-block-b">SAVE:<input type="number" value="2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>&ndash;&gt;
+    </div>
+
+    <div class ="dice-wrapper">
+        &lt;!&ndash; List Header &ndash;&gt;
+        <div class="ui-bar-a" data-role="collapsible" data-collapsed="false">
+            <h1 class="ui-bar">Skills</h1>
+            <div class="ui-body ui-body-a character-list">
+
+                &lt;!&ndash;<div class="ui-grid-a ui-responsive">&ndash;&gt;
+                <div id="skills" class="ui-block"></div>
+                &lt;!&ndash;</div>&ndash;&gt;
+
+            </div>
+        </div>
+    </div>-->
+
+    <div id="inventory" class="dice-wrapper">
+        <!-- List Header -->
+        <div class="ui-bar-a" data-role="collapsible" data-collapsed="true">
+            <h1 class="ui-bar">Inventory</h1>
+            <!--<div class="ui-grid-a">-->
+            <div class="ui-grid-b ui-responsive">
+                <div id="copperpieces" class="ui-block-a">Cp
+                    <input type="number" value="10">
+                </div>
+                <div id="silverpieces" class="ui-block-b">Sp
+                    <input type="number" value="7">
+                </div>
+                <div id="electrumpieces" class="ui-block-a">Ep
+                    <input type="number" value="9">
+                </div>
+                <div id="goldpieces" class="ui-block-b">Gp
+                    <input type="number" value="3">
+                </div>
+                <div id="platinumpieces" class="ui-block-a">Pp
+                    <input type="number" value="0">
+                </div>
+                <div id="inventoryitems" class="ui-block-a">Items
+                    <input id="equipment" type="textarea" name="inventory"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+    <h3>
+        <div class="ui-grid-b ">
+            <div id="save" class="ui-block-a" style="text-align: left;"><a data-role="button" onclick="saveCharacterToLocalStorage()">Save</a></div>
+            <div id="load" class="ui-block-b" style="text-align: left;"><a data-role="button" onclick="loadCharacter()">Load</a></div>
+
+            <div class="ui-block-c" style="text-align: right;"><a data-role="button">Delete</a></div>
+        </div><!-- /grid-a -->
+    </h3>
+</div>
+
+<!-- DO NOT PUT ANYTHING BELOW THIS POINT -->
+<!-- Panel -->
+<div data-role="panel" id="mypanel" data-position="right">
+    <h2>Menu</h2>
+
+    <div><a data-role="button" data-theme="c">Character Sheet</a></div>
+    <div><a data-role="button" data-theme="c">Initiative Tracker</a></div>
+    <div><a data-role="button" data-theme="c">Items</a></div>
+    <div><a data-role="button" data-theme="c">Monsters</a></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!--CREATED BY DAMIAN SLOCOMBE-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+
+
+		<!--JQuery-->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<!--JQuery-->
+
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:400" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">
+		<!-- Fonts -->
+
+		<!-- Stylesheets -->
+		<link rel="stylesheet" href="CSS/main.css"/>
+		<!-- Stylesheets -->
+
+		<!--TODO - CLEAN UP AND CALL IN ONE-->
+		<!-- Scripts -->
+		<script src="Js/AddChar.js"></script>
+		<script src="Js/EditChar.js"></script>
+		<!-- Scripts -->
+
+
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+
+		<section id="page1" data-role="page" class="preview ui-shadow swatch">
+
+			<!-- Header -->
+				<header class="ui-header ui-bar-a" data-swatch="b" data-theme="b" data-role="header">
+					<a class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" title="Home" data-form="ui-icon" data-role="button"> Home </a>
+						<h1 class="ui-title" tabindex="0" role="heading" aria-level="1">Initiative Tracker</h1>
+					<a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title="Navigation" data-form="ui-icon" data-role="button" href="#mypanel"> Navigation </a>
+				</header>
+
+			<!--Content -->
+				<div class="ui-content">
+					<!-- Character List -->
+					<div class="list-wrapper ">
+
+						<!-- List Header -->
+						<div class="ui-bar ui-bar-a character-header">
+							<h3>Characters</h3>
+
+						</div>
+
+						<!-- List Body -->
+						<div class="ui-body ui-body-a character-list">
+
+							<div class="ui-grid-b btn-wrapper">
+								<div class="ui-block-a"><h1>Character Name</h1></div>
+								<div class="ui-block-b"><h1>Modifier      </h1></div>
+								<div class="ui-block-c"><h1>Initiative    </h1></div>
+							</div>
+
+							<ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow charInitList">
+
+								<li data-form="ui-body-a" data-swatch="a" data-theme="a" class="ui-li-static ui-body-a">
+									<div class="ui-grid-b btn-wrapper character-box">
+
+										<span class="edit" onclick="editCharacter($(this))">edit</span>
+										<span class="save" onclick="saveCharacter($(this))">save</span>
+
+										<div class="ui-block-a">
+											<h1 class="character-name">New Character</h1>
+										</div>
+
+										<div class="ui-block-b">
+											<h1 class="character-mod">0</h1>
+										</div>
+
+										<div class="ui-block-c">
+											<h1 class="character-init">0</h1>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+					<!-- Buttons -->
+					<div class="ui-grid-b ui-responsive btn-wrapper hi" data-role="controlgroup" data-type="horizontal" >
+						<!-- Save/Load/Delete List -->
+						<div class="ui-block-a"> <a data-role="button" data-theme="c" onclick="saveList()">Save List  </a></div>
+						<div class="ui-block-b"> <a data-role="button" data-theme="c" onclick="loadList()">Load List  </a></div>
+					</div>
+
+					<div class="ui-grid-b ui-responsive btn-wrapper" data-role="controlgroup" data-type="horizontal" >
+						<!-- Add/Edit/Delete Character -->
+						<div class="ui-block-a"> <a data-role="button" data-theme="c" class="btn-charAddNew" onclick="NewCharacter()">Add new Character</a></div>
+						<br>
+						<div class="ui-block-b"> <a data-role="button" data-theme="c" class="btn-charDelete" onclick="deleteCharacter()">Delete Character</a></div>
+					</div>
+
+				</div>
+			<!--Content -->
+
+			<!--
+			<div data-theme="a" data-role="header" data-position="fixed" data-tap-toggle="false" class="ui-grid-b">
+				<div class="ui-block-a"> <a data-role="button" data-theme="c" class="btn-charAddNew" onclick="NewCharacter()">Add new Character</a></div>
+
+				<div class="ui-block-b"> <a data-role="button" data-theme="c" class="btn-charAddNew" onclick="deleteCharacter()">Delete Character</a></div>
+			</div>-->
+
+			<!-- Panel -->
+			<div data-role="panel" id="mypanel" data-position="right">
+				<h2>Menu</h2>
+
+				<div>
+					<div><a data-role="button" data-theme="c">Character Select</a></div>
+					<div><a data-role="button" data-theme="c">Character Sheet</a></div>
+					<div><a data-role="button" data-theme="c">Dice Roller</a></div>
+					<div><a data-role="button" data-theme="c">Items & Equipment</a></div>
+					<div><a data-role="button" data-theme="c">Bestiary</a></div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SCRIPTS (Called after) -->
+		<script src="Js/ListData.js"></script>
+		<!-- SCRIPTS (Called after) -->
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <!--JQuery-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="Js/DiceRoller.js"></script>
+    <script src="Js/DiceAdder.js"></script>
+
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="CSS/main.css">
+    <!--JQuery-->
+
+
+    <meta charset="UTF-8">
+    <title>Dice Roller</title>
+</head>
+<body>
+<header class="ui-header ui-bar-a" data-swatch="b" data-theme="b" data-role="header">
+    <a class="ui-btn-left ui-btn-corner-all ui-btn ui-icon-home ui-btn-icon-notext ui-shadow" title="Home" data-form="ui-icon" data-role="button"> Home </a>
+    <h1 class="ui-title">Dice Roller</h1>
+    <a class="ui-btn-right ui-btn-corner-all ui-btn ui-icon-grid ui-btn-icon-notext ui-shadow" title="Navigation" data-form="ui-icon" data-role="button" href="#mypanel"> Navigation </a>
+</header>
+<div class ="ui-content">
+    <div class ="dice-wrapper">
+        <!-- List Header -->
+        <div class="ui-bar ui-bar-a">
+            <h3>Dice</h3>
+        </div>
+        <!-- List Body -->
+        <div class="ui-body ui-body-a dice-list">
+                <a data-role="button" id="RemoveDice" onclick ="RemoveDice()" >Remove</a>
+            <div class="ui-grid-d ui-responsive" >
+
+                <div class="ui-block-a"><p  id="NumberUp">Dice Number</p></div>
+                <div class="ui-block-b"><p  id="DiceUp">Dice Sides</p></div>
+                <div class="ui-block-c"><p  id="ModUP">Roll Modifier</p></div>
+                <div class="ui-block-d"></div>
+                <div class="ui-block-e TotalRoll"><p class="RollResult">0</p></div>
+
+                <div class="ui-block-a rolls"><input type="number" value="1" min="1" max="20"></div>
+                <div class="ui-block-b dice"><input type="number" min="0" max="100" list="standardDice">
+                    <datalist id ="standardDice">
+                    <option value = "2">
+                    <option value = "4">
+                    <option value = "6">
+                    <option value = "8">
+                    <option value = "10">
+                    <option value = "12">
+                    <option value = "20">
+                    <option value = "100">
+                </datalist>
+                </div>
+                <div class="ui-block-c modifier"><input type="number" value="0" min="-10" max="20"></div>
+                <div class="ui-block-d"><a data-role="button" class="Roll" onclick="rolldice($(this), '.rolls','.dice','.modifier')">Roll</a></div>
+                <div class="ui-block-e"><p></p></div>
+
+
+
+                <div class="ui-block-e seperateRolls"><p class="SeperateResults">0</p></div>
+            </div>
+        </div>
+    </div>
+    <a data-role="button" id="AddDice" onclick ="NewDice()">Add Dice</a>
+
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+    <h3>
+        <div class="ui-grid-b ">
+            <div class="ui-block-a" style="text-align: left;"><a data-role="button"  id="Save" onclick="SavePage()">Save</a></div>
+            <div class="ui-block-b" style="text-align: center;"><a data-role="button" id="Load" onclick="loadList()">Load</a></div>
+            <div class="ui-block-c" style="text-align: right;"><a data-role="button" id="Delete">Delete</a></div>
+        </div><!-- /grid-a -->
+    </h3>
+</div>
+
+<!-- DO NOT PUT ANYTHING BELOW THIS POINT -->
+<!-- Panel -->
+<div data-role="panel" id="mypanel" data-position="right">
+    <h2>Menu</h2>
+   
+    <!--<div><a href = "" data-role="button" data-theme="c">Character Select</a></div>-->
+    <div><a  data-role="button" href="Char.html" rel="external" data-theme="c">Character Sheet</a></div>
+    <div><a  data-role="button" href = "inittracker.html" rel="external" data-theme="c">Initiative Tracker</a></div>
+	<div><a href = "Dice.html" data-role="button" rel="external" data-theme="c">Dice Roller</a></div>
+    <div><a href = "database_add.html" data-role="button" rel="external" data-theme="c">Items</a></div>
+    <div><a href = "bestiary_add.html" data-role="button" rel="external" data-theme="c">Monsters</a></div>
+</div>
+
+<script src="Js/SaveLoad.js"></script>
+
+</body>
+</html>
